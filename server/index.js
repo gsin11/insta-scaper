@@ -30,7 +30,7 @@ app.get("/api/getData/:username", async (req, res) => {
     username: process.env.USERNAME,
     password: process.env.PASSWORD,
   };
-  const data = await script(req.params.username);
+  const data = await script(req.params.username, credentials);
 
   fs.writeFile(saveHere, data.followers.join(","), function (err) {
     if (err) return console.log(err);
